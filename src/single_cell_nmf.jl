@@ -17,7 +17,7 @@ performed.
 Returns a (2 x number of cells) array.
 """
 function reduce_dims_atac(atac_df::DataFrame, Z::Array{Float64}, R::Array{Bool})
-	#test
+	# I personally would document the functions a little more so that is clear what the inputs and outputs are
 	X_atac, _ = df_to_array(atac_df, "locus_name")
 
 	ZR = (Z .* R) ./ sum(Z .* R, dims = 1)
@@ -52,7 +52,7 @@ scATAC-seq data, respectively.
 function perform_nmf(rna_df::DataFrame, atac_df::DataFrame, k::Int64;
 			dropout_prob = 0.25, n_iter = 500.0, alpha = 1.0, lambda = 100000.0,
 			gamma = 1.0, verbose = false)
-	if k <= 0
+	if k <= 0 # can't you do this with @assert instead of a if loop?
 		throw(ArgumentError("k should be positive"))
 	end
 	
