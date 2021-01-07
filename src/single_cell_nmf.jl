@@ -17,6 +17,9 @@ performed.
 Returns a (2 x number of cells) array.
 """
 function reduce_dims_atac(atac_df::DataFrame, Z::Array{Float64}, R::Array{Bool})
+	# I personally would document the functions a little more so that is clear what the inputs and outputs are
+	# Especially for the main functions
+	# Also an example would be helpfull in the documentation 
 	X_atac, _ = df_to_array(atac_df, "locus_name")
 
 	ZR = (Z .* R) ./ sum(Z .* R, dims = 1)
@@ -51,11 +54,11 @@ scATAC-seq data, respectively.
 function perform_nmf(rna_df::DataFrame, atac_df::DataFrame, k::Int64;
 			dropout_prob = 0.25, n_iter = 500.0, alpha = 1.0, lambda = 100000.0,
 			gamma = 1.0, verbose = false)
-	if k <= 0
+	if k <= 0 # can't you do this with @assert instead of a if loop?
 		throw(ArgumentError("k should be positive"))
 	end
 	
-	if !("gene_name" in names(rna_df)) || !("locus_name" in names(atac_df))
+	if !("gene_name" in names(rna_df)) || !("locus_name" in names(atac_df)) # @assert
 		throw(ArgumentError("Input DataFrames must have feature names"))
 	end
 	
@@ -99,7 +102,7 @@ function perform_nmf(rna_df::DataFrame, atac_df::DataFrame, k::Int64;
 	return H, W_rna_df, W_atac_df, Z, R, obj_history
 end
 
-function df_to_array(df::DataFrame, feature_name)
+function df_to_array(df::DataFrame, feature_name) # also a small documentation for these functions can be handy
 	features = df[!, feature_name]
 	df_no_names = df[!, filter(x -> x != feature_name, names(df))]
 	X = convert(Array{Float64}, df_no_names)	

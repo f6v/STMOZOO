@@ -5,7 +5,7 @@ This project implements coupled non-negative matrix factorization(NMF) for multi
 
 ## Motivation
 
-Single-cell technologies allow studying cellular heterogeneity at unprecedented resolution thousands of cells. It is possible to sequence transcriptome, epigenome, proteome, and other -omes of single cells, and the price is constantly dropping. As it is possible to profile both epigenetic features and transcriptome, we can try to connect these features to uncover the mechanisms of regulatory heterogeneity. However, integrating the data from multiple experiments and modalities can be quite challenging due to technical and biological variability. Single-cell data analysis is full of challenges and most tools are relatively new. Notably, chromatin accessibility measurements at the single-cell level are extremely sparse, and it is not always possible to reliably recover all the cell types from such measurements.
+Single-cell technologies allow studying cellular heterogeneity at unprecedented resolution for thousands of cells. It is possible to sequence transcriptome, epigenome, proteome, and other -omes of single cells, and the price is constantly dropping. As it is possible to profile both epigenetic features and transcriptome, we can try to connect these features to uncover the mechanisms of regulatory heterogeneity. However, integrating the data from multiple experiments and modalities can be quite challenging due to technical and biological variability. Single-cell data analysis is full of challenges and most tools are relatively new. Notably, chromatin accessibility measurements at the single-cell level are extremely sparse, and it is not always possible to reliably recover all the cell types from such measurements.
 
 ## What is matrix factorization?
 
