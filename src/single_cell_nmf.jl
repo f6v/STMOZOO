@@ -18,7 +18,8 @@ Returns a (2 x number of cells) array.
 """
 function reduce_dims_atac(atac_df::DataFrame, Z::Array{Float64}, R::Array{Bool})
 	# I personally would document the functions a little more so that is clear what the inputs and outputs are
-	# Especially for the main functions 
+	# Especially for the main functions
+	# Also an example would be helpfull in the documentation 
 	X_atac, _ = df_to_array(atac_df, "locus_name")
 
 	ZR = (Z .* R) ./ sum(Z .* R, dims = 1)
