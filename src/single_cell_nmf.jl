@@ -17,6 +17,7 @@ performed.
 Returns a (2 x number of cells) array.
 """
 function reduce_dims_atac(atac_df::DataFrame, Z::Array{Float64}, R::Array{Bool})
+	#test
 	X_atac, _ = df_to_array(atac_df, "locus_name")
 
 	ZR = (Z .* R) ./ sum(Z .* R, dims = 1)
